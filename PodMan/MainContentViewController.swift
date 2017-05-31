@@ -28,6 +28,7 @@ class MainContentViewController: NSViewController ,NSSplitViewDelegate,NSTableVi
         projectListView.register(NSNib.init(nibNamed: "ProjectRowView", bundle: nil), forIdentifier: "project")
         projectListView.selectionHighlightStyle = .regular
         searchField.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(windowWillClose(noti:)), name: NSNotification.Name.NSWindowWillClose, object: nil)
     }
     
     override func viewDidAppear() {
@@ -38,6 +39,11 @@ class MainContentViewController: NSViewController ,NSSplitViewDelegate,NSTableVi
         }
     }
     
+    @objc fileprivate final func windowWillClose(noti:Notification){
+        if let session = currentModalSession,noti.object is settingWindow{
+            NSApplication.shared().endModalSession(session)
+        }
+    }
 //MARK: ---- eventResponse
 
     @IBAction func createBtnClicked(_ sender: Any) {
@@ -119,7 +125,7 @@ class MainContentViewController: NSViewController ,NSSplitViewDelegate,NSTableVi
 
     @IBAction func settingBtnClicked(_ sender: Any) {
         let window:settingWindow = settingWindow.window()
-        NSApplication.shared().beginModalSession(for: window)
+        currentModalSession = NSApplication.shared().beginModalSession(for: window)
     }
 //MARK: ---- private Method
     
@@ -260,6 +266,8 @@ class MainContentViewController: NSViewController ,NSSplitViewDelegate,NSTableVi
         }
     }
     
+    fileprivate var currentModalSession:NSModalSession?
+    
     //Operation Buttons
     
     @IBOutlet weak var initBtn: NSButton!
@@ -273,4 +281,8 @@ class MainContentViewController: NSViewController ,NSSplitViewDelegate,NSTableVi
     @IBOutlet weak var projectVersionLabel: NSTextField!
     @IBOutlet weak var projectNameLabel: NSTextField!
     @IBOutlet weak var projectListView: NSTableView!
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 }

@@ -18,7 +18,7 @@ class AddSpecWindow: NSWindow ,PodProcessDelegate{
     @IBAction func confirmBtnClicked(_ sender: Any) {
         errorMessageLabel.isHidden = true
         loading = true
-        process.runPodRepoAdd(name: "testSpec", url: "https://github.com/qgg/testSpecs.git")
+        process.runPodRepoAdd(name: nameField.stringValue, url: URLField.stringValue)
     }
     
 //MARK: ---- Delegate
@@ -27,6 +27,7 @@ class AddSpecWindow: NSWindow ,PodProcessDelegate{
     }
     
     func PodProcessDidFinished() {
+        PodSpecs.insertData(name: nameField.stringValue, repo: URLField.stringValue)
         self.close()
     }
     

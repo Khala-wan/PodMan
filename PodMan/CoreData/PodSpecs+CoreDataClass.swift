@@ -29,7 +29,7 @@ public class PodSpecs: NSManagedObject {
     }
     
     //MARK:查询
-    class func queryData(_ name:String)->[PodSpecs]{
+    class func queryData(_ name:String?)->[PodSpecs]{
         
         //获取数据上下文对象
         let app = NSApplication.shared().delegate as! AppDelegate
