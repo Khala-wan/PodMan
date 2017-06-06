@@ -7,11 +7,12 @@
 //
 
 import Cocoa
-import OAuth2
+//import OAuth2
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-
+    fileprivate var statsBarItem:NSStatusItem?
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         NSAppleEventManager.shared().setEventHandler(
             self,
@@ -19,10 +20,23 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             forEventClass: AEEventClass(kInternetEventClass),
             andEventID: AEEventID(kAEGetURL)
         )
+        
+        //MARK:statusBar
+        statsBarItem = NSStatusBar.system.statusItem(withLength: 32)
+        statsBarItem?.image = NSImage.init(named: NSImage.Name(rawValue: "statsBarIcon"))
     }
-
+    
+    func applicationWillTerminate(_ aNotification: Notification) {
+        saveContext()
+        NSStatusBar.system.removeStatusItem(statsBarItem!)
+    }
+    
+    func applicationWillBecomeActive(_ notification: Notification) {
+        
+    }
+    
     /** Gets called when the App launches/opens via URL. */
-    func handleURLEvent(_ event: NSAppleEventDescriptor, withReply reply: NSAppleEventDescriptor) {
+    @objc func handleURLEvent(_ event: NSAppleEventDescriptor, withReply reply: NSAppleEventDescriptor) {
         if let urlString = event.paramDescriptor(forKeyword: AEKeyword(keyDirectObject))?.stringValue {
             let url = URL(string: urlString)!
             if "podman" == url.scheme && "oauth" == url.host {
@@ -32,10 +46,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         else {
             NSLog("No valid URL to handle")
         }
-    }
-    
-    func applicationWillTerminate(_ aNotification: Notification) {
-        saveContext()
     }
     
 //MARK: ---- Core Data

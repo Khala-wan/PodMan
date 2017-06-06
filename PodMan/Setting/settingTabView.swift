@@ -12,7 +12,7 @@ class settingTabView: NSTabView {
 
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
-        let context:CGContext = (NSGraphicsContext.current()?.cgContext)!
+        let context:CGContext = (NSGraphicsContext.current?.cgContext)!
         NSColor.clear.setFill()
         context.fill(dirtyRect)
         

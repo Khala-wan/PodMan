@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12118"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="tUD-9R-vKI" customClass="ProjectRowView" customModule="PodMan" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="494" height="37"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1BF-Eb-gOf">
+                    <rect key="frame" x="8" y="10" width="37" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="PhE-jA-QsD">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zzt-q5-TdM">
+                    <rect key="frame" x="449" y="10" width="37" height="17"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="Iq4-fs-ya9">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="1BF-Eb-gOf" secondAttribute="bottom" constant="10" id="3NL-8B-vLE"/>
+                <constraint firstItem="zzt-q5-TdM" firstAttribute="top" secondItem="tUD-9R-vKI" secondAttribute="top" constant="10" id="NRk-xS-P2L"/>
+                <constraint firstAttribute="trailing" secondItem="zzt-q5-TdM" secondAttribute="trailing" constant="10" id="Phg-6s-sa6"/>
+                <constraint firstAttribute="bottom" secondItem="zzt-q5-TdM" secondAttribute="bottom" constant="10" id="Ycb-ah-6nf"/>
+                <constraint firstItem="1BF-Eb-gOf" firstAttribute="top" secondItem="tUD-9R-vKI" secondAttribute="top" constant="10" id="b8v-qj-EX1"/>
+                <constraint firstItem="1BF-Eb-gOf" firstAttribute="leading" secondItem="tUD-9R-vKI" secondAttribute="leading" constant="10" id="s4B-sF-F2V"/>
+            </constraints>
+            <connections>
+                <outlet property="nameLabel" destination="1BF-Eb-gOf" id="CLd-BO-bLe"/>
+                <outlet property="versionLabel" destination="zzt-q5-TdM" id="Oju-wp-1Xf"/>
+            </connections>
+            <point key="canvasLocation" x="180" y="114.5"/>
+        </customView>
+    </objects>
+</document>

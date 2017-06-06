@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Pod" representedClassName="Pod" syncable="YES">
+        <attribute name="allowWarnings" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="dictionary" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isPrivate" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="specsRepo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="useLibraries" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
     <entity name="PodManProject" representedClassName="PodManProject" syncable="YES">
         <attribute name="filePathData" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="isPod" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
@@ -7,11 +15,13 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="PodSpecs" representedClassName="PodSpecs" syncable="YES">
+        <attribute name="httpsURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="repoURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sshURL" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Pod" positionX="-63" positionY="9" width="128" height="135"/>
         <element name="PodManProject" positionX="-63" positionY="-18" width="128" height="105"/>
-        <element name="PodSpecs" positionX="-63" positionY="9" width="128" height="75"/>
+        <element name="PodSpecs" positionX="-63" positionY="9" width="128" height="90"/>
     </elements>
 </model>

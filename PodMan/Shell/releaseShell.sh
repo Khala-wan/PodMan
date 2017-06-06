@@ -6,31 +6,22 @@
 #  Created by 万圣 on 2017/5/26.
 #  Copyright © 2017年 万圣. All rights reserved.
 
-#$2:sources
-#$3:allowWarning
-#$4:useLibraries
+#$2:isPrivate
+#$3:specsRepo
+#$4:allowWarning
+#$5:useLibraries
 
 export LANG=en_US.UTF-8
 
 echo "************************PodMan启动**************************"
-echo "Pod repo push: 开始 🚀🚀🚀🚀"
+echo "Pod repo release: 开始 🚀🚀🚀🚀"
 cd $1
 
-if [ $3 == "YES" ]
+if [ $2 == "YES" ]
 then
-if [ $4 == "YES"]
-then
-/usr/local/bin/pod spec lint --sources=$2 --allow-warnings --uselibraries
+    /usr/local/bin/pod repo push $3 $4 $5
 else
-/usr/local/bin/pod spec lint --sources=$2 --allow-warnings
-fi
-else
-if [ $4 == "YES"]
-then
-/usr/local/bin/pod spec lint --sources=$2 --uselibraries
-else
-/usr/local/bin/pod spec lint --sources=$2
-fi
+    /usr/local/bin/pod trunk push $3 $4 $5
 fi
 
 echo "完成"

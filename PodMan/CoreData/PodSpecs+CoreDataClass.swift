@@ -2,7 +2,7 @@
 //  PodSpecs+CoreDataClass.swift
 //  PodMan
 //
-//  Created by 万圣 on 2017/5/31.
+//  Created by 万圣 on 2017/6/3.
 //  Copyright © 2017年 万圣. All rights reserved.
 //
 
@@ -12,10 +12,10 @@ import CoreData
 @objc(PodSpecs)
 public class PodSpecs: NSManagedObject {
     //MARK:新增
-    class func insertData(name:String,repo:String){
+    class func insertData(name:String,https:String,ssh:String){
         
         //获取数据上下文对象
-        let app = NSApplication.shared().delegate as! AppDelegate
+        let app = NSApplication.shared.delegate as! AppDelegate
         let context = app.persistentContainer.viewContext
         //创建对象
         let EntityName = "PodSpecs"
@@ -23,7 +23,8 @@ public class PodSpecs: NSManagedObject {
         
         //对象赋值
         newProject.name = name
-        newProject.repoURL = repo
+        newProject.httpsURL = https
+        newProject.sshURL = ssh
         //保存
         app.saveContext()
     }
@@ -32,7 +33,7 @@ public class PodSpecs: NSManagedObject {
     class func queryData(_ name:String?)->[PodSpecs]{
         
         //获取数据上下文对象
-        let app = NSApplication.shared().delegate as! AppDelegate
+        let app = NSApplication.shared.delegate as! AppDelegate
         let context = app.persistentContainer.viewContext
         
         //声明数据的请求
@@ -63,7 +64,7 @@ public class PodSpecs: NSManagedObject {
     class func deleteData(name:String)  {
         
         //获取数据上下文对象
-        let app = NSApplication.shared().delegate as! AppDelegate
+        let app = NSApplication.shared.delegate as! AppDelegate
         let context = app.persistentContainer.viewContext
         
         //声明数据的请求
@@ -97,5 +98,4 @@ public class PodSpecs: NSManagedObject {
             fatalError("查询错误： \(nserror), \(nserror.userInfo)")
         }
     }
-
 }

@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class AddSpecWindow: NSWindow ,PodProcessDelegate{
+class AddSpecWindow: NSWindow ,ProcessDelegate{
     static func window() -> AddSpecWindow {
         let window:AddSpecWindow = AddSpecWindow.loadWithNibName("AddSpecWindow", AddSpecWindow.classForCoder()) as! AddSpecWindow
         return window
@@ -16,24 +16,31 @@ class AddSpecWindow: NSWindow ,PodProcessDelegate{
     
     
     @IBAction func confirmBtnClicked(_ sender: Any) {
-        errorMessageLabel.isHidden = true
+        if sshURLField.stringValue.characters.count == 0 || nameField.stringValue.characters.count == 0 || httpsURLField.stringValue.characters.count == 0{
+            errorMessageLabel.stringValue = "信息不全"
+            return
+        }
+        errorMessageLabel.stringValue = ""
         loading = true
-        process.runPodRepoAdd(name: nameField.stringValue, url: URLField.stringValue)
+        process.runPodRepoAdd(name: nameField.stringValue, url: sshURLField.stringValue)
+    }
+    
+    @IBAction func helpBtnClicked(_ sender: NSButton) {
+        helpView.show(relativeTo: sender.bounds, of: sender, preferredEdge: NSRectEdge.maxY)
     }
     
 //MARK: ---- Delegate
-    func PodProcessDidOutPut(message: String) {
+    func ProcessDidOutPut(message: String) {
         
     }
     
-    func PodProcessDidFinished() {
-        PodSpecs.insertData(name: nameField.stringValue, repo: URLField.stringValue)
+    func ProcessDidFinished() {
+        PodSpecs.insertData(name: nameField.stringValue, https: httpsURLField.stringValue, ssh: sshURLField.stringValue)
         self.close()
     }
     
-    func PodProcessDidFailed(message: String) {
+    func ProcessDidFailed(message: String) {
         errorMessageLabel.stringValue = message
-        errorMessageLabel.isHidden = false
         loading = false
     }
     
@@ -53,9 +60,20 @@ class AddSpecWindow: NSWindow ,PodProcessDelegate{
         }
     }
     
+    fileprivate lazy var helpView:NSPopover = {
+        let pop:NSPopover = NSPopover()
+        pop.behavior = .semitransient
+        pop.contentViewController = SpecHelpViewController()
+        pop.animates = true
+        return pop
+    }()
+    
     @IBOutlet weak var loadingView: NSProgressIndicator!
     @IBOutlet weak var confirmBtn: NSButton!
-    @IBOutlet weak var URLField: NSTextField!
+    
+    @IBOutlet weak var sshURLField: NSTextField!
+   
+    @IBOutlet weak var httpsURLField: NSTextField!
     @IBOutlet weak var errorMessageLabel: NSTextField!
     @IBOutlet weak var nameField: NSTextField!
 }

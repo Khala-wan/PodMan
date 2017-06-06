@@ -686,7 +686,7 @@
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="t0k-Pa-ofo" customClass="MainContentWindow" customModule="PodMan" customModuleProvider="target">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="434" y="182" width="600" height="480"/>
+                        <rect key="contentRect" x="434" y="182" width="612" height="480"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
                     </window>
                     <connections>
@@ -694,7 +694,7 @@
                     </connections>
                 </windowController>
             </objects>
-            <point key="canvasLocation" x="593" y="867"/>
+            <point key="canvasLocation" x="599" y="867"/>
         </scene>
         <!--Main Content View Controller-->
         <scene sceneID="2d4-UE-ahS">
@@ -870,10 +870,9 @@
                                                             <size key="minSize" width="448" height="298"/>
                                                             <size key="maxSize" width="5251" height="10000000"/>
                                                             <attributedString key="textStorage">
-                                                                <fragment content="1231231244124124">
+                                                                <fragment content="Welcome To PodMan">
                                                                     <attributes>
                                                                         <font key="NSFont" size="18" name="FZLTXHK--GBK1-0"/>
-                                                                        <font key="NSOriginalFont" size="18" name="FZLTXHK--GBK1-0"/>
                                                                         <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                                     </attributes>
                                                                 </fragment>
@@ -901,6 +900,9 @@
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <action selector="allowWarningsChaned:" target="qYq-mD-BDP" id="GrM-xr-p2y"/>
+                                                </connections>
                                             </button>
                                             <button translatesAutoresizingMaskIntoConstraints="NO" id="I6z-OL-I73">
                                                 <rect key="frame" x="9" y="170" width="102" height="18"/>
@@ -908,6 +910,9 @@
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <action selector="useLibrariesChanged:" target="qYq-mD-BDP" id="Kcr-yP-v4I"/>
+                                                </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vWu-fE-5BS">
                                                 <rect key="frame" x="35" y="97" width="110" height="32"/>
@@ -1004,16 +1009,54 @@
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
+                                            <button translatesAutoresizingMaskIntoConstraints="NO" id="zw6-Fy-VWb">
+                                                <rect key="frame" x="406" y="194" width="71" height="18"/>
+                                                <buttonCell key="cell" type="check" title="verbose" bezelStyle="regularSquare" imagePosition="left" inset="2" id="hbB-ir-TdO">
+                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                            </button>
+                                            <button translatesAutoresizingMaskIntoConstraints="NO" id="NOy-PF-Wlx">
+                                                <rect key="frame" x="379" y="545" width="23" height="23"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="23" id="3mk-Th-adZ"/>
+                                                    <constraint firstAttribute="height" constant="23" id="Asc-JZ-HOx"/>
+                                                </constraints>
+                                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="tag-4" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="PRk-6J-DIA">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="tagBtnClicked:" target="qYq-mD-BDP" id="vbY-n1-RBF"/>
+                                                </connections>
+                                            </button>
+                                            <button translatesAutoresizingMaskIntoConstraints="NO" id="XiG-du-IBo">
+                                                <rect key="frame" x="432" y="545" width="23" height="23"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="23" id="ac4-c4-AB6"/>
+                                                    <constraint firstAttribute="height" constant="23" id="fPr-tZ-V9I"/>
+                                                </constraints>
+                                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="release" imagePosition="overlaps" alignment="center" imageScaling="proportionallyDown" inset="2" id="6mO-eS-70i">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="system"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="releaseBtnClicked:" target="qYq-mD-BDP" id="mba-Yj-Ghz"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="0aM-5d-SL4" firstAttribute="top" secondItem="vWu-fE-5BS" secondAttribute="bottom" constant="20" id="8DC-BK-IQK"/>
                                             <constraint firstItem="I6z-OL-I73" firstAttribute="leading" secondItem="NFL-db-dR5" secondAttribute="leading" id="8n7-Ku-e5l"/>
                                             <constraint firstItem="bad-6M-c4x" firstAttribute="width" secondItem="GKG-0T-xEw" secondAttribute="width" id="9IN-yv-Rh8"/>
                                             <constraint firstItem="bad-6M-c4x" firstAttribute="centerY" secondItem="GKG-0T-xEw" secondAttribute="centerY" id="C4i-gV-afw"/>
+                                            <constraint firstItem="XiG-du-IBo" firstAttribute="leading" secondItem="NOy-PF-Wlx" secondAttribute="trailing" constant="30" id="CX2-vZ-cDr"/>
                                             <constraint firstItem="c5t-DG-gYg" firstAttribute="top" secondItem="PK9-bo-7TL" secondAttribute="top" constant="50" id="Dfe-M9-csj"/>
+                                            <constraint firstAttribute="trailing" secondItem="zw6-Fy-VWb" secondAttribute="trailing" constant="10" id="Dh6-X7-oFW"/>
                                             <constraint firstItem="1xO-Cf-pQO" firstAttribute="leading" secondItem="I6z-OL-I73" secondAttribute="leading" id="Dkv-8a-4jH"/>
                                             <constraint firstItem="uLD-8l-Xcg" firstAttribute="width" secondItem="EqN-Ch-171" secondAttribute="width" id="F2I-rH-PC5"/>
                                             <constraint firstItem="EqN-Ch-171" firstAttribute="centerY" secondItem="vWu-fE-5BS" secondAttribute="centerY" id="Gg8-wl-lfF"/>
+                                            <constraint firstItem="NOy-PF-Wlx" firstAttribute="top" secondItem="XiG-du-IBo" secondAttribute="top" id="GzD-rB-EPA"/>
                                             <constraint firstItem="c5t-DG-gYg" firstAttribute="leading" secondItem="PK9-bo-7TL" secondAttribute="leading" constant="10" id="H6C-oT-XFA"/>
                                             <constraint firstItem="NFL-db-dR5" firstAttribute="leading" secondItem="vRH-PK-TBC" secondAttribute="leading" id="Il4-Bt-CD6"/>
                                             <constraint firstItem="uLD-8l-Xcg" firstAttribute="centerY" secondItem="EqN-Ch-171" secondAttribute="centerY" id="Jjr-eo-V6v"/>
@@ -1022,13 +1065,16 @@
                                             <constraint firstItem="jbe-QG-3EI" firstAttribute="bottom" secondItem="8KF-OQ-neh" secondAttribute="bottom" id="QaT-bv-Zlf"/>
                                             <constraint firstAttribute="trailing" secondItem="c5t-DG-gYg" secondAttribute="trailing" constant="10" id="Vu1-bb-ddm"/>
                                             <constraint firstItem="bad-6M-c4x" firstAttribute="leading" secondItem="GKG-0T-xEw" secondAttribute="trailing" constant="40" id="Wjz-St-rPQ"/>
+                                            <constraint firstItem="zw6-Fy-VWb" firstAttribute="centerY" secondItem="NFL-db-dR5" secondAttribute="centerY" id="Wsa-P1-QPK"/>
                                             <constraint firstItem="faG-N2-Uko" firstAttribute="leading" secondItem="0aM-5d-SL4" secondAttribute="leading" constant="30" id="YFb-Nm-jQg"/>
+                                            <constraint firstAttribute="trailing" secondItem="XiG-du-IBo" secondAttribute="trailing" constant="30" id="Zcn-gN-xHd"/>
                                             <constraint firstItem="0aM-5d-SL4" firstAttribute="leading" secondItem="1xO-Cf-pQO" secondAttribute="leading" id="bRr-fa-lry"/>
                                             <constraint firstItem="faG-N2-Uko" firstAttribute="top" secondItem="0aM-5d-SL4" secondAttribute="bottom" constant="10" id="cqf-BQ-iWM"/>
                                             <constraint firstItem="8KF-OQ-neh" firstAttribute="top" secondItem="PK9-bo-7TL" secondAttribute="top" constant="15" id="fBv-hc-qcE"/>
                                             <constraint firstItem="1xO-Cf-pQO" firstAttribute="top" secondItem="I6z-OL-I73" secondAttribute="bottom" constant="20" id="fiF-RW-wr4"/>
                                             <constraint firstItem="faG-N2-Uko" firstAttribute="width" secondItem="vWu-fE-5BS" secondAttribute="width" id="hY6-iu-fE2"/>
                                             <constraint firstItem="8KF-OQ-neh" firstAttribute="leading" secondItem="vRH-PK-TBC" secondAttribute="leading" id="iMF-d7-fRf"/>
+                                            <constraint firstItem="XiG-du-IBo" firstAttribute="top" secondItem="PK9-bo-7TL" secondAttribute="top" constant="12" id="jT2-Rm-PSj"/>
                                             <constraint firstItem="EqN-Ch-171" firstAttribute="leading" secondItem="vWu-fE-5BS" secondAttribute="trailing" constant="40" id="kf6-6E-tfa"/>
                                             <constraint firstItem="vWu-fE-5BS" firstAttribute="top" secondItem="1xO-Cf-pQO" secondAttribute="bottom" constant="10" id="kmN-W3-5Ce"/>
                                             <constraint firstItem="GKG-0T-xEw" firstAttribute="width" secondItem="faG-N2-Uko" secondAttribute="width" id="rb5-hb-1lF"/>
@@ -1060,6 +1106,7 @@
                     </view>
                     <connections>
                         <outlet property="addProjectBtn" destination="k9U-TY-8ZE" id="sYH-XH-mjH"/>
+                        <outlet property="allowWaringsBox" destination="NFL-db-dR5" id="BYb-Xj-iCD"/>
                         <outlet property="consoleView" destination="vRH-PK-TBC" id="LDP-pb-nsZ"/>
                         <outlet property="createBtn" destination="faG-N2-Uko" id="7Yh-xG-yXB"/>
                         <outlet property="iconView" destination="xNv-kE-gIm" id="REE-PS-dwj"/>
@@ -1069,11 +1116,15 @@
                         <outlet property="projectListView" destination="uj9-cf-Xp4" id="LK5-h2-rBg"/>
                         <outlet property="projectNameLabel" destination="8KF-OQ-neh" id="VeL-JH-LWP"/>
                         <outlet property="projectVersionLabel" destination="jbe-QG-3EI" id="LrQ-eh-0hW"/>
+                        <outlet property="releaseBtn" destination="XiG-du-IBo" id="CuY-fR-Kk4"/>
                         <outlet property="searchField" destination="u6v-AD-O6i" id="MeD-4s-Nbh"/>
                         <outlet property="specLintBtn" destination="bad-6M-c4x" id="nTI-Xu-2IY"/>
                         <outlet property="splitView" destination="5J8-d0-6sa" id="2fe-Gv-nCN"/>
                         <outlet property="subProjectBtn" destination="Zat-fc-Fsm" id="cF4-jR-joo"/>
+                        <outlet property="tagBtn" destination="NOy-PF-Wlx" id="BUC-QL-V6h"/>
                         <outlet property="updateBtn" destination="uLD-8l-Xcg" id="zDE-vV-VAP"/>
+                        <outlet property="useLibrariesBox" destination="I6z-OL-I73" id="k3d-f6-Nne"/>
+                        <outlet property="verboseBox" destination="zw6-Fy-VWb" id="JE3-we-cdh"/>
                     </connections>
                 </viewController>
                 <customObject id="u7Y-nY-L0W" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1194,6 +1245,8 @@
         <image name="icon" width="200" height="200"/>
         <image name="loginBtn" width="200" height="199"/>
         <image name="loginLog" width="200" height="163"/>
+        <image name="release" width="48" height="48"/>
+        <image name="tag-4" width="48" height="48"/>
         <image name="设置" width="128" height="128"/>
         <image name="项目" width="200" height="200"/>
     </resources>

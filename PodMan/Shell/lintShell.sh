@@ -15,21 +15,20 @@ export LANG=en_US.UTF-8
 echo "************************PodMan启动**************************"
 echo "Pod lint: 开始 🚀🚀🚀🚀"
 cd $1
-
-/usr/local/bin/pod repo add $1 $2
+pwd
 
 if [ $3 == "YES" ]
 then
-    if [ $4 == "YES"]
+    if [ $4 == "YES" ]
     then
-        /usr/local/bin/pod lib lint --sources=$2 --allow-warnings --uselibraries
+        /usr/local/bin/pod lib lint --sources=$2 --allow-warnings --use-libraries
     else
         /usr/local/bin/pod lib lint --sources=$2 --allow-warnings
     fi
 else
-    if [ $4 == "YES"]
+    if [ $4 == "YES" ]
     then
-        /usr/local/bin/pod lib lint --sources=$2 --uselibraries
+        /usr/local/bin/pod lib lint --sources=$2 --use-libraries
     else
         /usr/local/bin/pod lib lint --sources=$2
     fi

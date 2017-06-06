@@ -15,7 +15,7 @@ public class PodManProject: NSManagedObject {
     class func insertData(name:String,filePath:URL,isPod:Bool){
         
         //获取数据上下文对象
-        let app = NSApplication.shared().delegate as! AppDelegate
+        let app = NSApplication.shared.delegate as! AppDelegate
         let context = app.persistentContainer.viewContext
         //创建user对象
         let EntityName = "PodManProject"
@@ -34,7 +34,7 @@ public class PodManProject: NSManagedObject {
     class func queryData(_ path:URL?)->[project]{
         
         //获取数据上下文对象
-        let app = NSApplication.shared().delegate as! AppDelegate
+        let app = NSApplication.shared.delegate as! AppDelegate
         let context = app.persistentContainer.viewContext
         
         //声明数据的请求
@@ -81,7 +81,7 @@ public class PodManProject: NSManagedObject {
     class func deleteData(path:String)  {
         
         //获取数据上下文对象
-        let app = NSApplication.shared().delegate as! AppDelegate
+        let app = NSApplication.shared.delegate as! AppDelegate
         let context = app.persistentContainer.viewContext
         
         //声明数据的请求
@@ -104,11 +104,13 @@ public class PodManProject: NSManagedObject {
             
             //遍历查询的结果
             for info:PodManProject in fetchedObjects{
+                //不在这里保存下下面delete之后info.name就成了nil。magic！！！
+                let podName:String = info.name ?? ""
                 //删除对象
                 context.delete(info)
-                
                 //重新保存
                 app.saveContext()
+                Pod.deleteData(name: podName)
             }
         }catch {
             let nserror = error as NSError

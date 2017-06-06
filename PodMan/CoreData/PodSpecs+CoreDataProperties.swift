@@ -2,7 +2,7 @@
 //  PodSpecs+CoreDataProperties.swift
 //  PodMan
 //
-//  Created by 万圣 on 2017/5/31.
+//  Created by 万圣 on 2017/6/3.
 //  Copyright © 2017年 万圣. All rights reserved.
 //
 
@@ -16,7 +16,8 @@ extension PodSpecs {
         return NSFetchRequest<PodSpecs>(entityName: "PodSpecs")
     }
 
+    @NSManaged public var httpsURL: String?
     @NSManaged public var name: String?
-    @NSManaged public var repoURL: String?
+    @NSManaged public var sshURL: String?
 
 }
