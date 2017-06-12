@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="BUc-0s-eQG">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16G12b" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12118"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13122.17"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -718,7 +718,7 @@
                                     <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xNv-kE-gIm">
                                         <rect key="frame" x="11" y="483" width="48" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="icon" id="N5s-7f-LbS"/>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="N5s-7f-LbS"/>
                                     </imageView>
                                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YOp-Kb-FAK">
                                         <rect key="frame" x="20" y="42" width="28" height="27"/>
@@ -740,7 +740,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="244" height="580"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <subviews>
-                                            <searchField wantsLayer="YES" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6v-AD-O6i">
+                                            <searchField wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6v-AD-O6i">
                                                 <rect key="frame" x="20" y="538" width="204" height="22"/>
                                                 <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="w0v-eJ-f5G">
                                                     <font key="font" metaFont="system"/>
@@ -778,7 +778,7 @@
                                                                             <rect key="frame" x="1" y="1" width="239" height="17"/>
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                             <subviews>
-                                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmE-ZG-Hak">
+                                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gmE-ZG-Hak">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="239" height="17"/>
                                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="dCh-jg-FaU">
@@ -863,7 +863,7 @@
                                                     <rect key="frame" x="1" y="1" width="448" height="298"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
-                                                        <textView editable="NO" importsGraphics="NO" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" linkDetection="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="vRH-PK-TBC">
+                                                        <textView editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" linkDetection="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="vRH-PK-TBC">
                                                             <rect key="frame" x="0.0" y="0.0" width="448" height="298"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -914,7 +914,7 @@
                                                     <action selector="useLibrariesChanged:" target="qYq-mD-BDP" id="Kcr-yP-v4I"/>
                                                 </connections>
                                             </button>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vWu-fE-5BS">
+                                            <button verticalHuggingPriority="750" tag="1" translatesAutoresizingMaskIntoConstraints="NO" id="vWu-fE-5BS">
                                                 <rect key="frame" x="35" y="97" width="110" height="32"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="98" id="hGp-Yf-ouX"/>
@@ -924,47 +924,47 @@
                                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
                                                 </buttonCell>
                                                 <connections>
-                                                    <action selector="initBtnClicked:" target="qYq-mD-BDP" id="H4L-GR-qN9"/>
+                                                    <action selector="podOprationBtnClicked:" target="qYq-mD-BDP" id="LQ6-3w-uSy"/>
                                                 </connections>
                                             </button>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GKG-0T-xEw">
+                                            <button verticalHuggingPriority="750" tag="4" translatesAutoresizingMaskIntoConstraints="NO" id="GKG-0T-xEw">
                                                 <rect key="frame" x="173" y="29" width="110" height="32"/>
                                                 <buttonCell key="cell" type="push" title="本地验证" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Qxi-3L-NKr">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
                                                 </buttonCell>
                                                 <connections>
-                                                    <action selector="libLintBtnClicked:" target="qYq-mD-BDP" id="1et-aN-MZ4"/>
+                                                    <action selector="podOprationBtnClicked:" target="qYq-mD-BDP" id="BFx-FF-GGF"/>
                                                 </connections>
                                             </button>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="bad-6M-c4x">
+                                            <button verticalHuggingPriority="750" tag="5" translatesAutoresizingMaskIntoConstraints="NO" id="bad-6M-c4x">
                                                 <rect key="frame" x="311" y="29" width="110" height="32"/>
                                                 <buttonCell key="cell" type="push" title="远程验证" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="zen-r7-atZ">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" size="13" name=".PingFangSC-Regular"/>
                                                 </buttonCell>
                                                 <connections>
-                                                    <action selector="specLintBtnClicked:" target="qYq-mD-BDP" id="DvT-wT-Zn3"/>
+                                                    <action selector="podOprationBtnClicked:" target="qYq-mD-BDP" id="rE8-5d-9Od"/>
                                                 </connections>
                                             </button>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="EqN-Ch-171">
+                                            <button verticalHuggingPriority="750" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="EqN-Ch-171">
                                                 <rect key="frame" x="173" y="97" width="110" height="32"/>
                                                 <buttonCell key="cell" type="push" title="install" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4rf-46-Fis">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
                                                 <connections>
-                                                    <action selector="installBtnClicked:" target="qYq-mD-BDP" id="AYt-8l-QzW"/>
+                                                    <action selector="podOprationBtnClicked:" target="qYq-mD-BDP" id="3Du-lI-YLi"/>
                                                 </connections>
                                             </button>
-                                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="uLD-8l-Xcg">
+                                            <button verticalHuggingPriority="750" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="uLD-8l-Xcg">
                                                 <rect key="frame" x="311" y="97" width="110" height="32"/>
                                                 <buttonCell key="cell" type="push" title="update" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="t2b-5E-JzV">
                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
                                                 <connections>
-                                                    <action selector="updateBtnClicked:" target="qYq-mD-BDP" id="6b7-ei-aEd"/>
+                                                    <action selector="podOprationBtnClicked:" target="qYq-mD-BDP" id="hnf-5o-U5Y"/>
                                                 </connections>
                                             </button>
                                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="faG-N2-Uko">
@@ -977,7 +977,7 @@
                                                     <action selector="createBtnClicked:" target="qYq-mD-BDP" id="6nv-ov-MXA"/>
                                                 </connections>
                                             </button>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xO-Cf-pQO">
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1xO-Cf-pQO">
                                                 <rect key="frame" x="9" y="135" width="46" height="17"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Podfile" id="yma-wj-1Qd">
                                                     <font key="font" metaFont="system"/>
@@ -985,7 +985,7 @@
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0aM-5d-SL4">
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0aM-5d-SL4">
                                                 <rect key="frame" x="9" y="67" width="28" height="17"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Pod" id="bo8-xn-Qpk">
                                                     <font key="font" metaFont="system"/>
@@ -993,7 +993,7 @@
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8KF-OQ-neh">
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8KF-OQ-neh">
                                                 <rect key="frame" x="9" y="544" width="72" height="21"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Pod Man" id="6KK-Dy-x4m">
                                                     <font key="font" metaFont="system" size="17"/>
@@ -1001,7 +1001,7 @@
                                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jbe-QG-3EI">
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jbe-QG-3EI">
                                                 <rect key="frame" x="87" y="544" width="33" height="14"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="B2B-DI-wPJ">
                                                     <font key="font" metaFont="smallSystem"/>
@@ -1015,6 +1015,9 @@
                                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
+                                                <connections>
+                                                    <action selector="verboseChanged:" target="qYq-mD-BDP" id="caY-sW-ByW"/>
+                                                </connections>
                                             </button>
                                             <button translatesAutoresizingMaskIntoConstraints="NO" id="NOy-PF-Wlx">
                                                 <rect key="frame" x="379" y="545" width="23" height="23"/>
@@ -1030,7 +1033,7 @@
                                                     <action selector="tagBtnClicked:" target="qYq-mD-BDP" id="vbY-n1-RBF"/>
                                                 </connections>
                                             </button>
-                                            <button translatesAutoresizingMaskIntoConstraints="NO" id="XiG-du-IBo">
+                                            <button tag="6" translatesAutoresizingMaskIntoConstraints="NO" id="XiG-du-IBo">
                                                 <rect key="frame" x="432" y="545" width="23" height="23"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="23" id="ac4-c4-AB6"/>
@@ -1041,7 +1044,7 @@
                                                     <font key="font" metaFont="system"/>
                                                 </buttonCell>
                                                 <connections>
-                                                    <action selector="releaseBtnClicked:" target="qYq-mD-BDP" id="mba-Yj-Ghz"/>
+                                                    <action selector="podOprationBtnClicked:" target="qYq-mD-BDP" id="OuI-6z-fkA"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1124,7 +1127,7 @@
                         <outlet property="tagBtn" destination="NOy-PF-Wlx" id="BUC-QL-V6h"/>
                         <outlet property="updateBtn" destination="uLD-8l-Xcg" id="zDE-vV-VAP"/>
                         <outlet property="useLibrariesBox" destination="I6z-OL-I73" id="k3d-f6-Nne"/>
-                        <outlet property="verboseBox" destination="zw6-Fy-VWb" id="JE3-we-cdh"/>
+                        <outlet property="verboseBox" destination="zw6-Fy-VWb" id="FXp-G0-leR"/>
                     </connections>
                 </viewController>
                 <customObject id="u7Y-nY-L0W" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1134,15 +1137,31 @@
         <!--登录-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController title="登录" id="XfG-lQ-9wD" customClass="MainContentViewController" customModule="PodMan" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="登录" id="XfG-lQ-9wD" customClass="LoginViewController" customModule="PodMan" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="334" height="400"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <visualEffectView appearanceType="vibrantDark" blendingMode="behindWindow" material="appearanceBased" state="followsWindowActiveState" translatesAutoresizingMaskIntoConstraints="NO" id="oPQ-Ww-pTf">
                                 <rect key="frame" x="0.0" y="0.0" width="334" height="400"/>
+                                <subviews>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nMF-a2-ChH">
+                                        <rect key="frame" x="236" y="3" width="94" height="32"/>
+                                        <buttonCell key="cell" type="push" title="跳过登录" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="E7U-lt-WHz">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" size="13" name=".PingFangSC-Regular"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="skipLoginClicked:" target="XfG-lQ-9wD" id="uHH-St-bVA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="nMF-a2-ChH" secondAttribute="trailing" constant="10" id="ZWL-Tg-HDN"/>
+                                    <constraint firstAttribute="bottom" secondItem="nMF-a2-ChH" secondAttribute="bottom" constant="10" id="aUY-9M-VlN"/>
+                                </constraints>
                             </visualEffectView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wnb-OI-aGg">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wnb-OI-aGg">
                                 <rect key="frame" x="165" y="90" width="4" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="esz-5i-Gj3">
                                     <font key="font" metaFont="system"/>
@@ -1150,34 +1169,34 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <imageView canDrawConcurrently="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cxx-4G-qNc" customClass="IconImageView" customModule="PodMan" customModuleProvider="target">
-                                <rect key="frame" x="127" y="300" width="80" height="80"/>
+                            <imageView canDrawConcurrently="YES" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cxx-4G-qNc">
+                                <rect key="frame" x="117" y="280" width="100" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="5qg-IA-qka"/>
+                                    <constraint firstAttribute="height" constant="100" id="5qg-IA-qka"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="70" id="hCE-Y7-xmL"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="70" id="w9s-FZ-zWL"/>
-                                    <constraint firstAttribute="width" constant="80" id="zyK-C5-01S"/>
+                                    <constraint firstAttribute="width" constant="100" id="zyK-C5-01S"/>
                                 </constraints>
-                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyUpOrDown" image="loginLog" id="kA3-jz-b9J"/>
+                                <imageCell key="cell" continuous="YES" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="logo" id="kA3-jz-b9J"/>
                             </imageView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3De-BV-XfL">
-                                <rect key="frame" x="18" y="224" width="298" height="71"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3De-BV-XfL">
+                                <rect key="frame" x="18" y="204" width="298" height="71"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="WelCome to PodMan" id="3ar-4v-pcF">
                                     <font key="font" size="17" name="Zapfino"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xha-jM-bPw">
-                                <rect key="frame" x="95" y="136" width="144" height="21"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xha-jM-bPw">
+                                <rect key="frame" x="102" y="118" width="130" height="19"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Login With GitHub" id="Q58-6v-We0">
-                                    <font key="font" metaFont="system" size="17"/>
+                                    <font key="font" metaFont="system" size="15"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I6o-or-LJC">
-                                <rect key="frame" x="127" y="207" width="80" height="17"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="I6o-or-LJC">
+                                <rect key="frame" x="127" y="187" width="80" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="version 1.0.0" id="hYG-dw-g2d">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="0.84999999999999998" colorSpace="calibratedRGB"/>
@@ -1195,7 +1214,7 @@
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="loginBtnClicked:" target="XfG-lQ-9wD" id="XVk-s1-orS"/>
+                                    <action selector="loginBtnClicked:" target="XfG-lQ-9wD" id="I94-c3-SiJ"/>
                                 </connections>
                             </button>
                             <progressIndicator hidden="YES" wantsLayer="YES" horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="tYF-qH-HwF">
@@ -1226,10 +1245,10 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="loginBtn" destination="JBq-MC-7Tg" id="2wy-Tu-81w"/>
-                        <outlet property="loginIndicator" destination="tYF-qH-HwF" id="Ykz-jg-9Ka"/>
-                        <outlet property="loginStatusLabel" destination="wnb-OI-aGg" id="L2L-Al-uFd"/>
-                        <outlet property="versionLabel" destination="I6o-or-LJC" id="RhA-Tr-lEQ"/>
+                        <outlet property="loginBtn" destination="JBq-MC-7Tg" id="Zyo-KU-PTW"/>
+                        <outlet property="loginIndicator" destination="tYF-qH-HwF" id="ylZ-zm-H2B"/>
+                        <outlet property="loginStatusLabel" destination="wnb-OI-aGg" id="0gK-5K-SaJ"/>
+                        <outlet property="versionLabel" destination="I6o-or-LJC" id="zh9-0I-e9l"/>
                         <segue destination="BUc-0s-eQG" kind="show" identifier="gotoMain" id="HSc-mJ-ZHl"/>
                     </connections>
                 </viewController>
@@ -1242,9 +1261,8 @@
         <image name="button_add" width="30" height="22"/>
         <image name="button_bar_spacer" width="11" height="23"/>
         <image name="button_sub" width="13" height="13"/>
-        <image name="icon" width="200" height="200"/>
         <image name="loginBtn" width="200" height="199"/>
-        <image name="loginLog" width="200" height="163"/>
+        <image name="logo" width="341.33334350585938" height="341.33334350585938"/>
         <image name="release" width="48" height="48"/>
         <image name="tag-4" width="48" height="48"/>
         <image name="设置" width="128" height="128"/>

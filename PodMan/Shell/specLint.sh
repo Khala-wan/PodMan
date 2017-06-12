@@ -9,29 +9,22 @@
 #$2:sources
 #$3:allowWarning
 #$4:useLibraries
-
+#$5:verbose
 export LANG=en_US.UTF-8
 
 echo "************************PodMan启动**************************"
 echo "Pod spec lint: 开始 🚀🚀🚀🚀"
 cd $1
 
-if [ $3 == "YES" ]
-then
-    if [ $4 == "YES"]
-    then
-        /usr/local/bin/pod spec lint --sources=$2 --allow-warnings --uselibraries
-    else
-        /usr/local/bin/pod spec lint --sources=$2 --allow-warnings
-    fi
-else
-    if [ $4 == "YES"]
-    then
-        /usr/local/bin/pod spec lint --sources=$2 --uselibraries
-    else
-        /usr/local/bin/pod spec lint --sources=$2
-    fi
-fi
+/usr/local/bin/pod spec lint --sources=$2 $3 $4 $5
 
+if [ $? -eq 0 ]
+then
+echo "PodProcessSuccessed"
 echo "完成"
 echo "**************************************************************"
+else
+echo "PodProcessFailed"
+echo "完成"
+echo "**************************************************************"
+fi

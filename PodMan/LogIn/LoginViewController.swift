@@ -11,23 +11,13 @@ import Cocoa
 
 let OAuth2AppDidReceiveCallbackNotification = NSNotification.Name(rawValue: "OAuth2AppDidReceiveCallback")
 
-class ViewController: NSViewController {
+class LoginViewController: NSViewController {
     
-    var loader: DataLoader = GitHubLoader.init()
-    
-    fileprivate var iconImageURL:String?
-    
-    @IBOutlet weak var loginStatusLabel: NSTextField!
-    @IBOutlet weak var versionLabel: NSTextField!
-    
-    
-    @IBOutlet weak var loginBtn: NSButton!
-    @IBOutlet weak var loginIndicator: NSProgressIndicator!
     override func viewDidLoad() {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(handleRedirect(_:)), name: OAuth2AppDidReceiveCallbackNotification, object: nil)
         if loader.oauth2.accessToken != nil {
-            LoginAnimation(true)
+            loginAnimation(true)
             self.OAuthorWithGitHub()
         }
     }
@@ -71,17 +61,24 @@ class ViewController: NSViewController {
         }
     }
     
-    fileprivate final func LoginAnimation(_ loging:Bool){
-        loginStatusLabel.stringValue = loging ? "登录中..." : ""
+    fileprivate final func loginAnimation(_ loging:Bool){
+        loginStatusLabel.stringValue = loging ? "登录中..." : "登录失败"
         loginBtn.isHidden = loging
         loginIndicator.isHidden = !loging
         loging ? loginIndicator.startAnimation(nil) : loginIndicator.stopAnimation(nil)
     }
     
+    fileprivate final func gotoMainVC(iconURL:String){
+        
+        self.iconURL = iconURL
+        self.performSegue(withIdentifier: NSStoryboardSegue.Identifier.init("gotoMain"), sender: nil)
+        
+    }
+    
 
 //MARK: ---- eventResponse
     @IBAction func loginBtnClicked(_ sender: Any) {
-        LoginAnimation(true)
+        loginAnimation(true)
         loader.oauth2.authorize { (json, error) in
             if let error = error{
                 self.show(error)
@@ -89,37 +86,57 @@ class ViewController: NSViewController {
         }
     }
     
+    @IBAction func skipLoginClicked(_ sender: Any) {
+        self.gotoMainVC(iconURL: "")
+    }
+    
 //MARK: ---- netWork
     fileprivate final func OAuthorWithGitHub(){
         GitHubLoader.init().requestUserdata { (dict, error) in
             if let error = error {
-                self.LoginAnimation(false)
+                self.loginAnimation(false)
                 switch error {
                 case OAuth2Error.requestCancelled: break
-                //                    self.button?.title = "Cancelled. Try Again."
                 default:
                     self.show(error)
                 }
             }
             else {
                 if let imgURL = dict?["avatar_url"] as? String {
-                    self.iconImageURL = imgURL
-                }
-                if let username = dict?["name"] as? String {
-                    
+                    self.gotoMainVC(iconURL: imgURL)
                 }
                 else {
-                    
-                    NSLog("Fetched: \(dict)")
+                    self.loginAnimation(false)
                 }
                 
             }
         }
     }
     
+    
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        if segue.identifier!.rawValue == "gotoMain" {
+            superWindow?.close()
+            let windowVC = segue.destinationController as! NSWindowController
+            let vc:MainContentViewController = windowVC.contentViewController as! MainContentViewController
+            vc.iconURL = iconURL ?? ""
+        }
+    }
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-
+//MARK: ---- getter && setter
+    var loader: DataLoader = GitHubLoader.init()
+    fileprivate var iconURL:String?
+    fileprivate var name:String?
+    
+    
+    var superWindow:NSWindowController?
+    
+    @IBOutlet weak var loginStatusLabel: NSTextField!
+    @IBOutlet weak var versionLabel: NSTextField!
+    @IBOutlet weak var loginBtn: NSButton!
+    @IBOutlet weak var loginIndicator: NSProgressIndicator!
 }
 

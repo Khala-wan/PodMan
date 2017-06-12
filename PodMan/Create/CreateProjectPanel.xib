@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16G12b" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="12118"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13122.17"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="480" height="331"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idE-Je-sYV">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="idE-Je-sYV">
                         <rect key="frame" x="18" y="294" width="58" height="17"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="54" id="ZNe-fE-bz0"/>
@@ -29,7 +29,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgw-VS-iqI">
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lgw-VS-iqI">
                         <rect key="frame" x="89" y="292" width="321" height="22"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Hrh-YB-aU0">
                             <font key="font" metaFont="system"/>
@@ -37,7 +37,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogL-b9-SX5">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ogL-b9-SX5">
                         <rect key="frame" x="18" y="257" width="55" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Pod名称" id="axv-Lj-yds">
                             <font key="font" metaFont="system"/>
@@ -58,7 +58,7 @@
                             <action selector="chooseBtnClicked:" target="RdO-AN-OH8" id="ldq-rh-gLq"/>
                         </connections>
                     </button>
-                    <textField verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Br-38-yBb">
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3Br-38-yBb">
                         <rect key="frame" x="89" y="255" width="371" height="22"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="ykM-j8-Tzq">
                             <font key="font" metaFont="system"/>
@@ -76,7 +76,7 @@
                             <action selector="privatePodChanged:" target="RdO-AN-OH8" id="pQb-Ew-qZu"/>
                         </connections>
                     </button>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v07-Fv-h1s">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="v07-Fv-h1s">
                         <rect key="frame" x="18" y="186" width="96" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="PodSpecs repo" id="YX4-8q-BXr">
                             <font key="font" metaFont="system"/>
@@ -84,7 +84,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9G7-3V-HZt">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9G7-3V-HZt">
                         <rect key="frame" x="18" y="149" width="31" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="语言" id="gTv-vX-6ec">
                             <font key="font" size="13" name=".PingFangSC-Regular"/>
@@ -92,7 +92,7 @@
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3W-hZ-5Bb">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Q3W-hZ-5Bb">
                         <rect key="frame" x="18" y="112" width="58" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="测试框架" id="xmm-vz-VdV">
                             <font key="font" size="13" name=".PingFangSC-Regular"/>
@@ -243,7 +243,7 @@
             </view>
             <connections>
                 <outlet property="pathLabel" destination="lgw-VS-iqI" id="rHm-24-UVv"/>
-                <outlet property="podNameLabel" destination="3Br-38-yBb" id="nyX-rU-NGU"/>
+                <outlet property="podNameLabel" destination="3Br-38-yBb" id="AXw-dI-tTQ"/>
                 <outlet property="specsRepoPopUp" destination="ZNg-q9-MJt" id="dmL-iV-XMb"/>
                 <outlet property="testTool1" destination="CRP-oJ-iHk" id="ou8-Iq-bao"/>
                 <outlet property="testTool2" destination="MyJ-np-wsE" id="TCw-hM-1gM"/>

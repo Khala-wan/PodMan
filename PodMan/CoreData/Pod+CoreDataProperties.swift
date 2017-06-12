@@ -21,6 +21,6 @@ extension Pod {
     @NSManaged public var isPrivate: Bool
     @NSManaged public var useLibraries: Bool
     @NSManaged public var allowWarnings: Bool
+    @NSManaged public var verbose: Bool
     @NSManaged public var dictionary: String?
-
 }

@@ -8,10 +8,6 @@
 
 import Cocoa
 
-protocol CreatePanelDelegate {
-    func createPanelDidCreatePod(item:PodModel,isCreate:Bool)
-}
-
 class CreateProjectPanel: NSWindow ,NSComboBoxDelegate,NSComboBoxDataSource,ProcessDelegate{
     
     static func panel() -> CreateProjectPanel {
@@ -19,16 +15,22 @@ class CreateProjectPanel: NSWindow ,NSComboBoxDelegate,NSComboBoxDataSource,Proc
         return panel
     }
 
-    static func panel(path:URL, name:String,createDelegate:CreatePanelDelegate) -> CreateProjectPanel {
+    static func panel(path:URL, name:String,completionHandler:@escaping (_ item:PodModel,_ isCreate:Bool)->()) -> CreateProjectPanel {
         let panel:CreateProjectPanel = CreateProjectPanel.panel()
         panel.isCreate = false
-        panel.createDelegate = createDelegate
         panel.setFrame(NSRect.init(x: 0, y: 0, width: 400, height: 185), display: true)
         panel.center()
         panel.podNameLabel.isEditable = false
         panel.podNameLabel.stringValue = name
         panel.pathLabel.stringValue = path.deletingLastPathComponent().absoluteString
         panel.PodInfo["podPath"] = panel.pathLabel.stringValue
+        panel.completionHandler = completionHandler
+        return panel
+    }
+    
+    static func panel(completionHandler:@escaping (_ newProject:project,_ item:PodModel,_ isCreate:Bool)->()) -> CreateProjectPanel {
+        let panel:CreateProjectPanel = CreateProjectPanel.panel()
+        panel.completionHandlerForCrate = completionHandler
         return panel
     }
     
@@ -46,6 +48,7 @@ class CreateProjectPanel: NSWindow ,NSComboBoxDelegate,NSComboBoxDataSource,Proc
         PodInfo["viewTest"] = "yes"
         PodInfo["demoAPP"] = "yes"
         PodInfo["lan"] = "swift"
+        
     }
     
 //MARK: ---- Event Response
@@ -103,9 +106,9 @@ class CreateProjectPanel: NSWindow ,NSComboBoxDelegate,NSComboBoxDataSource,Proc
             guard validatePodInfo(info: PodInfo, isPrivate: isPrivatePod) else {
                 return
             }
-            PodProcess.initWith(delegate: self).runPodCreate(podInfo:PodInfo)
+            PodProcess.initWith(operation: .create, delegate: self).runPodCreate(podInfo:PodInfo)
         }else{
-            ProcessDidFinished()
+            ProcessDidSuccessed(opration: .create)
         }
         
     }
@@ -118,20 +121,23 @@ class CreateProjectPanel: NSWindow ,NSComboBoxDelegate,NSComboBoxDataSource,Proc
 //MARK: ---- delegate
     
     //MARK:PodProcess
-    func ProcessDidOutPut(message: String) {
-        
+    func ProcessDidSuccessed(opration: PodManOperationType) {
+        close()
+        let podItem = getPodItemFromPodInfo(info: PodInfo)
+        if isCreate {
+            var path:URL = URL.init(string: podItem.dictionary!)!
+            path.appendPathComponent("\(podItem.dictionary!).podspec")
+            let newProject = project.pod(name: podItem.name!, path: path, version: "0.1.0", lintPath: path.absoluteString)
+            completionHandlerForCrate(newProject,podItem,isCreate)
+        }else{
+            completionHandler(podItem, isCreate)
+        }
     }
-    func ProcessDidFailed(message: String) {
+    
+    func ProcessDidFailed(opration: PodManOperationType, message: String) {
         let alert:NSAlert = NSAlert()
         alert.messageText = message
         alert.beginSheetModal(for: self, completionHandler: nil)
-    }
-    func ProcessDidFinished() {
-        close()
-        if createDelegate != nil{
-            
-            createDelegate?.createPanelDidCreatePod(item: getPodItemFromPodInfo(info: PodInfo), isCreate: self.isCreate)
-        }
     }
 
 //MARK: ---- private Method
@@ -157,6 +163,7 @@ class CreateProjectPanel: NSWindow ,NSComboBoxDelegate,NSComboBoxDataSource,Proc
         podItem.isPrivate = isPrivatePod
         podItem.useLibraries = false
         podItem.allowWarnings = true
+        podItem.verbose = false
         return podItem
     }
 
@@ -191,8 +198,8 @@ class CreateProjectPanel: NSWindow ,NSComboBoxDelegate,NSComboBoxDataSource,Proc
         }
     }
     
-    var createDelegate:CreatePanelDelegate?
-    
+    fileprivate var completionHandler:(_ item:PodModel,_ isCreate:Bool)->() = {_,_ in }
+    fileprivate var completionHandlerForCrate:(_ newProject:project,_ item:PodModel,_ isCreate:Bool)->() = {_,_,_ in }
     //IB
     @IBOutlet weak var testTool1: NSButton!
     

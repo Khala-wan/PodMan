@@ -9,6 +9,7 @@
 import Cocoa
 
 class AddSpecWindow: NSWindow ,ProcessDelegate{
+    
     static func window() -> AddSpecWindow {
         let window:AddSpecWindow = AddSpecWindow.loadWithNibName("AddSpecWindow", AddSpecWindow.classForCoder()) as! AddSpecWindow
         return window
@@ -30,22 +31,18 @@ class AddSpecWindow: NSWindow ,ProcessDelegate{
     }
     
 //MARK: ---- Delegate
-    func ProcessDidOutPut(message: String) {
-        
-    }
-    
-    func ProcessDidFinished() {
+    func ProcessDidSuccessed(opration: PodManOperationType) {
         PodSpecs.insertData(name: nameField.stringValue, https: httpsURLField.stringValue, ssh: sshURLField.stringValue)
         self.close()
     }
     
-    func ProcessDidFailed(message: String) {
+    func ProcessDidFailed(opration: PodManOperationType, message: String) {
         errorMessageLabel.stringValue = message
         loading = false
     }
     
     fileprivate lazy var process:PodProcess = {
-        return PodProcess.initWith(delegate: self)
+        return PodProcess.initWith(operation: .addSpec, delegate: self)
     }()
     
     var loading:Bool = false{

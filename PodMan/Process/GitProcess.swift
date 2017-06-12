@@ -9,6 +9,9 @@
 import Cocoa
 
 struct GitProcess : baseProcess{
+    func handleResult(str: String) {
+    }
+    
     
     var delegate:ProcessDelegate?
     

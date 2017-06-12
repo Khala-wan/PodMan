@@ -14,5 +14,13 @@ cd $1
 
 /usr/local/bin/pod update
 
+if [ $? -eq 0 ]
+then
+echo "PodProcessSuccessed"
 echo "完成"
 echo "**************************************************************"
+else
+echo "PodProcessFailed"
+echo "完成"
+echo "**************************************************************"
+fi

@@ -15,4 +15,5 @@ class PodModel : NSObject {
     var useLibraries: Bool?
     var allowWarnings: Bool?
     var dictionary: String?
+    var verbose:Bool?
 }

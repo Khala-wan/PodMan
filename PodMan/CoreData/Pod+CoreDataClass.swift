@@ -11,6 +11,7 @@ import CoreData
 
 @objc(Pod)
 public class Pod: NSManagedObject {
+//MARK: ---- core Data
     //MARK:新增
     class func insertData(item:PodModel){
         
@@ -28,6 +29,7 @@ public class Pod: NSManagedObject {
         newProject.allowWarnings = item.allowWarnings!
         newProject.useLibraries = item.useLibraries!
         newProject.dictionary = item.dictionary
+        newProject.verbose = item.verbose!
         //保存
         app.saveContext()
     }

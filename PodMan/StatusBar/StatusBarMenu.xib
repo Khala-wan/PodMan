@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13122.17" systemVersion="16G12b" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13122.17"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <menu autoenablesItems="NO" id="h12-Wm-ze3" customClass="StatusBarMenu" customModule="PodMan" customModuleProvider="target">
+            <items>
+                <menuItem title="当前Pod" enabled="NO" id="tNK-lA-gK7">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem title="Item" enabled="NO" id="b91-86-lAA">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+                <menuItem isSeparatorItem="YES" id="CXt-7a-e6J"/>
+                <menuItem title="Pod" enabled="NO" id="gVh-ZB-6pf">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="Pod" autoenablesItems="NO" id="Zwb-cQ-3lY">
+                        <items>
+                            <menuItem title="本地验证" tag="1" enabled="NO" keyEquivalent="l" id="fFO-ja-Oqr">
+                                <connections>
+                                    <action selector="itemClicked:" target="h12-Wm-ze3" id="jx4-7p-g5n"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="远程验证" tag="2" enabled="NO" keyEquivalent="L" id="ub2-Vy-1X9">
+                                <connections>
+                                    <action selector="itemClicked:" target="h12-Wm-ze3" id="5lR-m8-99I"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Tag" tag="3" enabled="NO" keyEquivalent="t" id="b29-f1-4dg">
+                                <connections>
+                                    <action selector="itemClicked:" target="h12-Wm-ze3" id="T6G-PD-gNo"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="发布" tag="4" enabled="NO" keyEquivalent="r" id="bpV-Xj-uZh">
+                                <connections>
+                                    <action selector="itemClicked:" target="h12-Wm-ze3" id="b60-JE-I4j"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="PodFile" enabled="NO" id="NUD-oI-qkm">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <menu key="submenu" title="PodFile" autoenablesItems="NO" id="CVE-re-QQu">
+                        <items>
+                            <menuItem title="Install" tag="5" enabled="NO" keyEquivalent="i" id="xx2-kH-fOi">
+                                <connections>
+                                    <action selector="itemClicked:" target="h12-Wm-ze3" id="Ssm-yi-sy1"/>
+                                </connections>
+                            </menuItem>
+                            <menuItem title="Update" tag="6" enabled="NO" keyEquivalent="u" id="ARg-0V-Uyq">
+                                <connections>
+                                    <action selector="itemClicked:" target="h12-Wm-ze3" id="L2Y-SM-8RJ"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
+                <menuItem title="显示 Pod Man" tag="7" id="gXz-JH-RYD">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="showClicked:" target="h12-Wm-ze3" id="oEM-Bt-sEE"/>
+                    </connections>
+                </menuItem>
+            </items>
+            <connections>
+                <outlet property="PodFileOperationItem" destination="NUD-oI-qkm" id="fEd-uB-3kl"/>
+                <outlet property="PodOpertaionItem" destination="gVh-ZB-6pf" id="TYA-2N-1ro"/>
+                <outlet property="UpdateItem" destination="ARg-0V-Uyq" id="FP9-RR-ObO"/>
+                <outlet property="installItem" destination="xx2-kH-fOi" id="jcs-2y-WMJ"/>
+                <outlet property="lintItem" destination="fFO-ja-Oqr" id="OI9-mL-BHp"/>
+                <outlet property="podNameItem" destination="b91-86-lAA" id="af5-wb-RsK"/>
+                <outlet property="releaseItem" destination="bpV-Xj-uZh" id="aQq-jA-Xfu"/>
+                <outlet property="showItem" destination="gXz-JH-RYD" id="zsG-Ab-oXl"/>
+                <outlet property="specLintItem" destination="ub2-Vy-1X9" id="3kZ-S6-I9g"/>
+                <outlet property="tagItem" destination="b29-f1-4dg" id="YEy-DI-zd9"/>
+            </connections>
+            <point key="canvasLocation" x="152" y="99.5"/>
+        </menu>
+    </objects>
+</document>

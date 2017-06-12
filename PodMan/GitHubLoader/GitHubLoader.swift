@@ -28,8 +28,8 @@ class GitHubLoader: OAuth2DataLoader ,DataLoader{
             "secret_in_body": true,                                      // GitHub does not accept client secret in the Authorization header
 			"verbose": true,
 		])
-        oauth.clientConfig.accessTokenAssumeUnexpired = true
-		super.init(oauth2: oauth)
+        oauth.clientConfig.accessTokenAssumeUnexpired = false
+        super.init(oauth2: oauth)
 	}
 	
 	

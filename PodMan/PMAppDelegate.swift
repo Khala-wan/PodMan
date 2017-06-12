@@ -11,7 +11,7 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    fileprivate var statsBarItem:NSStatusItem?
+    public var statusBarItem:NSStatusItem?
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         NSAppleEventManager.shared().setEventHandler(
@@ -22,17 +22,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         )
         
         //MARK:statusBar
-        statsBarItem = NSStatusBar.system.statusItem(withLength: 32)
-        statsBarItem?.image = NSImage.init(named: NSImage.Name(rawValue: "statsBarIcon"))
+        statusBarItem = NSStatusBar.system.statusItem(withLength: 32)
+        statusBarItem?.image = NSImage.init(named: NSImage.Name(rawValue: "statusBarIcon"))
+        statusBarItem?.menu = StatusBarMenu.loadWithNibName("StatusBarMenu", StatusBarMenu.classForCoder())
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
         saveContext()
-        NSStatusBar.system.removeStatusItem(statsBarItem!)
+        NSStatusBar.system.removeStatusItem(statusBarItem!)
     }
     
     func applicationWillBecomeActive(_ notification: Notification) {
         
+    }
+    
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        return true
     }
     
     /** Gets called when the App launches/opens via URL. */

@@ -41,7 +41,7 @@ class settingWindow: NSWindow ,NSTableViewDataSource,NSTableViewDelegate,Process
         loading = true
         let index:Int = specTableView.selectedRow
         currntRepoName = specList[index].name!
-        let process:PodProcess = PodProcess.initWith(delegate: self)
+        let process:PodProcess = PodProcess.initWith(operation: .removeSpec, delegate: self)
         process.runPodRepoRemove(name: currntRepoName!)
         
     }
@@ -70,18 +70,14 @@ class settingWindow: NSWindow ,NSTableViewDataSource,NSTableViewDelegate,Process
     }
     
     //PodProcessDelegate
-    func ProcessDidFinished() {
+    func ProcessDidSuccessed(opration: PodManOperationType) {
         PodSpecs.deleteData(name: currntRepoName!)
         specTableView.reloadData()
         loading = false
     }
     
-    func ProcessDidFailed(message: String) {
+    func ProcessDidFailed(opration: PodManOperationType, message: String) {
         loading = false
-    }
-    
-    func ProcessDidOutPut(message: String) {
-        
     }
 //MARK: ---- getter && setter
     

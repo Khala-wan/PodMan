@@ -24,5 +24,13 @@ else
     /usr/local/bin/pod trunk push $3 $4 $5
 fi
 
+if [ $? -eq 0 ]
+then
+echo "PodProcessSuccessed"
 echo "完成"
 echo "**************************************************************"
+else
+echo "PodProcessFailed"
+echo "完成"
+echo "**************************************************************"
+fi

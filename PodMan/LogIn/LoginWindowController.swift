@@ -16,6 +16,8 @@ class LoginWindowController: NSWindowController {
         window?.titleVisibility = .hidden
         window?.titlebarAppearsTransparent = true
         _ = self.window?.contentView?.insertVibrancyViewBlendingMode(model: .behindWindow)
+        let contentVC:LoginViewController = contentViewController as! LoginViewController
+        contentVC.superWindow = self
     }
 
 }

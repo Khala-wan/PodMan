@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		201042031EE7F15800CCC55A /* StatusBarMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 201042021EE7F15800CCC55A /* StatusBarMenu.swift */; };
+		201042071EE7F19900CCC55A /* StatusBarMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 201042061EE7F19900CCC55A /* StatusBarMenu.xib */; };
 		20687DAC1EE1570F002D915F /* Pod+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20687DAA1EE1570F002D915F /* Pod+CoreDataClass.swift */; };
 		20687DAD1EE1570F002D915F /* Pod+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20687DAB1EE1570F002D915F /* Pod+CoreDataProperties.swift */; };
 		20687DAF1EE1585B002D915F /* PodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20687DAE1EE1585B002D915F /* PodModel.swift */; };
@@ -38,6 +40,9 @@
 		206DC8D21EDEC5D200D547A9 /* createShell.sh in Resources */ = {isa = PBXBuildFile; fileRef = 206DC8A51EDEC5D200D547A9 /* createShell.sh */; };
 		206DC8D31EDEC5D200D547A9 /* specLint.sh in Resources */ = {isa = PBXBuildFile; fileRef = 206DC8A61EDEC5D200D547A9 /* specLint.sh */; };
 		206DC8D41EDEC5D200D547A9 /* updateShell.sh in Resources */ = {isa = PBXBuildFile; fileRef = 206DC8A71EDEC5D200D547A9 /* updateShell.sh */; };
+		207836431EEE9ACE00D48A22 /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 207836421EEE9AA600D48A22 /* Kingfisher.framework */; };
+		207836441EEE9ACE00D48A22 /* Kingfisher.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 207836421EEE9AA600D48A22 /* Kingfisher.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		208E98D91EEE7166003EAD7E /* Pod+PodProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208E98D81EEE7166003EAD7E /* Pod+PodProcess.swift */; };
 		20DAFE241EE69FA100DE6C10 /* OAuth2DataLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DAFE001EE69FA100DE6C10 /* OAuth2DataLoader.swift */; };
 		20DAFE251EE69FA100DE6C10 /* OAuth2DataLoaderSessionTaskDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DAFE011EE69FA100DE6C10 /* OAuth2DataLoaderSessionTaskDelegate.swift */; };
 		20DAFE261EE69FA100DE6C10 /* OAuth2DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20DAFE021EE69FA100DE6C10 /* OAuth2DataRequest.swift */; };
@@ -87,14 +92,30 @@
 		20FD93DF1EDFAF70000AAE24 /* VerticalCenterFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FD93DA1EDFAF70000AAE24 /* VerticalCenterFieldCell.swift */; };
 		20FD93E91EDFAFDB000AAE24 /* MainContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FD93E11EDFAFDB000AAE24 /* MainContentViewController.swift */; };
 		20FD93EA1EDFAFDB000AAE24 /* MainContentWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FD93E21EDFAFDB000AAE24 /* MainContentWindow.swift */; };
-		20FD93EB1EDFAFDB000AAE24 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FD93E31EDFAFDB000AAE24 /* MainViewController.swift */; };
+		20FD93EB1EDFAFDB000AAE24 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FD93E31EDFAFDB000AAE24 /* LoginViewController.swift */; };
 		20FD93EC1EDFAFDB000AAE24 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FD93E41EDFAFDB000AAE24 /* Project.swift */; };
 		20FD93ED1EDFAFDB000AAE24 /* ProjectRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20FD93E51EDFAFDB000AAE24 /* ProjectRowView.swift */; };
 		20FD93EE1EDFAFDB000AAE24 /* ProjectRowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 20FD93E61EDFAFDB000AAE24 /* ProjectRowView.xib */; };
 		20FD93F11EDFB167000AAE24 /* removeShell.sh in Resources */ = {isa = PBXBuildFile; fileRef = 20FD93F01EDFB167000AAE24 /* removeShell.sh */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2078363B1EEE998700D48A22 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				207836441EEE9ACE00D48A22 /* Kingfisher.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		201042021EE7F15800CCC55A /* StatusBarMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBarMenu.swift; sourceTree = "<group>"; };
+		201042061EE7F19900CCC55A /* StatusBarMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatusBarMenu.xib; sourceTree = "<group>"; };
 		20687DAA1EE1570F002D915F /* Pod+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Pod+CoreDataClass.swift"; sourceTree = "<group>"; };
 		20687DAB1EE1570F002D915F /* Pod+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Pod+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		20687DAE1EE1585B002D915F /* PodModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PodModel.swift; sourceTree = "<group>"; };
@@ -129,6 +150,8 @@
 		206DC8A51EDEC5D200D547A9 /* createShell.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = createShell.sh; sourceTree = "<group>"; };
 		206DC8A61EDEC5D200D547A9 /* specLint.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = specLint.sh; sourceTree = "<group>"; };
 		206DC8A71EDEC5D200D547A9 /* updateShell.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = updateShell.sh; sourceTree = "<group>"; };
+		207836421EEE9AA600D48A22 /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = "<group>"; };
+		208E98D81EEE7166003EAD7E /* Pod+PodProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pod+PodProcess.swift"; sourceTree = "<group>"; };
 		20DAFE001EE69FA100DE6C10 /* OAuth2DataLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuth2DataLoader.swift; sourceTree = "<group>"; };
 		20DAFE011EE69FA100DE6C10 /* OAuth2DataLoaderSessionTaskDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuth2DataLoaderSessionTaskDelegate.swift; sourceTree = "<group>"; };
 		20DAFE021EE69FA100DE6C10 /* OAuth2DataRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuth2DataRequest.swift; sourceTree = "<group>"; };
@@ -158,11 +181,11 @@
 		20DAFE1D1EE69FA100DE6C10 /* OAuth2Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuth2Error.swift; sourceTree = "<group>"; };
 		20DAFE1E1EE69FA100DE6C10 /* OAuth2KeychainAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuth2KeychainAccount.swift; sourceTree = "<group>"; };
 		20DAFE1F1EE69FA100DE6C10 /* OAuth2Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuth2Logger.swift; sourceTree = "<group>"; };
-		20DAFE201EE69FA100DE6C10 /* OAuth2Requestable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuth2Requestable.swift; sourceTree = "<group>"; };
+		20DAFE201EE69FA100DE6C10 /* OAuth2Requestable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuth2Requestable.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		20DAFE211EE69FA100DE6C10 /* OAuth2RequestPerformer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuth2RequestPerformer.swift; sourceTree = "<group>"; };
 		20DAFE221EE69FA100DE6C10 /* OAuth2Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuth2Response.swift; sourceTree = "<group>"; };
 		20DAFE231EE69FA100DE6C10 /* OAuth2Securable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuth2Securable.swift; sourceTree = "<group>"; };
-		20DAFE451EE6A03F00DE6C10 /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Keychain.swift; path = "../../../Downloads/SwiftKeychain-3734015afd390c08e94789cb7e116d83f9e0247c/Keychain/Keychain.swift"; sourceTree = "<group>"; };
+		20DAFE451EE6A03F00DE6C10 /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		20FD93C31EDFAE77000AAE24 /* CreateProjectPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateProjectPanel.swift; sourceTree = "<group>"; };
 		20FD93C41EDFAE77000AAE24 /* CreateProjectPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateProjectPanel.xib; sourceTree = "<group>"; };
 		20FD93C81EDFAEA9000AAE24 /* DataLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataLoader.swift; sourceTree = "<group>"; };
@@ -178,7 +201,7 @@
 		20FD93DA1EDFAF70000AAE24 /* VerticalCenterFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerticalCenterFieldCell.swift; sourceTree = "<group>"; };
 		20FD93E11EDFAFDB000AAE24 /* MainContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainContentViewController.swift; sourceTree = "<group>"; };
 		20FD93E21EDFAFDB000AAE24 /* MainContentWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainContentWindow.swift; sourceTree = "<group>"; };
-		20FD93E31EDFAFDB000AAE24 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		20FD93E31EDFAFDB000AAE24 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		20FD93E41EDFAFDB000AAE24 /* Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		20FD93E51EDFAFDB000AAE24 /* ProjectRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectRowView.swift; sourceTree = "<group>"; };
 		20FD93E61EDFAFDB000AAE24 /* ProjectRowView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectRowView.xib; sourceTree = "<group>"; };
@@ -190,6 +213,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				207836431EEE9ACE00D48A22 /* Kingfisher.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +223,7 @@
 		206CB1551EE2ACC60045FE93 /* Process */ = {
 			isa = PBXGroup;
 			children = (
+				208E98D81EEE7166003EAD7E /* Pod+PodProcess.swift */,
 				206CB1561EE2ACC60045FE93 /* PodProcess.swift */,
 				206CB1581EE2ADAC0045FE93 /* GitProcess.swift */,
 				206CB15A1EE2ADE10045FE93 /* BaseProcess.swift */,
@@ -209,6 +234,7 @@
 		206DC8511EDEC56C00D547A9 = {
 			isa = PBXGroup;
 			children = (
+				207836421EEE9AA600D48A22 /* Kingfisher.framework */,
 				206DC86C1EDEC5D200D547A9 /* PodMan */,
 				206DC8661EDEC56C00D547A9 /* Info.plist */,
 				206DC85B1EDEC56C00D547A9 /* Products */,
@@ -227,20 +253,20 @@
 		206DC86C1EDEC5D200D547A9 /* PodMan */ = {
 			isa = PBXGroup;
 			children = (
+				206DC8871EDEC5D200D547A9 /* PMAppDelegate.swift */,
 				206DC86D1EDEC5D200D547A9 /* Assets.xcassets */,
 				206DC86E1EDEC5D200D547A9 /* Main.storyboard */,
 				206DC8701EDEC5D200D547A9 /* CoreData */,
 				20FD93C21EDFAE77000AAE24 /* Create */,
+				206F09D01EE7ABE90025DA33 /* StatusBar */,
 				20FD93C71EDFAEA9000AAE24 /* GitHubLoader */,
 				20FD93CC1EDFAEDD000AAE24 /* Extension */,
 				20FD93E01EDFAFDB000AAE24 /* Main */,
 				206CB1551EE2ACC60045FE93 /* Process */,
 				20FD93D51EDFAF70000AAE24 /* LogIn */,
 				206DC87E1EDEC5D200D547A9 /* Info.plist */,
-				206DC8871EDEC5D200D547A9 /* PMAppDelegate.swift */,
 				206DC8891EDEC5D200D547A9 /* PodMan.entitlements */,
 				20DAFDFE1EE69F7000DE6C10 /* Oauth2 */,
-				20DAFE451EE6A03F00DE6C10 /* Keychain.swift */,
 				206DC8991EDEC5D200D547A9 /* Setting */,
 				206DC89F1EDEC5D200D547A9 /* Shell */,
 			);
@@ -300,9 +326,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		206F09D01EE7ABE90025DA33 /* StatusBar */ = {
+			isa = PBXGroup;
+			children = (
+				201042021EE7F15800CCC55A /* StatusBarMenu.swift */,
+				201042061EE7F19900CCC55A /* StatusBarMenu.xib */,
+			);
+			path = StatusBar;
+			sourceTree = "<group>";
+		};
 		20DAFDFE1EE69F7000DE6C10 /* Oauth2 */ = {
 			isa = PBXGroup;
 			children = (
+				20DAFE451EE6A03F00DE6C10 /* Keychain.swift */,
 				20DAFE141EE69FA100DE6C10 /* Base */,
 				20DAFDFF1EE69FA100DE6C10 /* DataLoader */,
 				20DAFE031EE69FA100DE6C10 /* Flows */,
@@ -409,6 +445,7 @@
 		20FD93D51EDFAF70000AAE24 /* LogIn */ = {
 			isa = PBXGroup;
 			children = (
+				20FD93E31EDFAFDB000AAE24 /* LoginViewController.swift */,
 				20FD93D61EDFAF70000AAE24 /* IconImageView.swift */,
 				20FD93D71EDFAF70000AAE24 /* ImageButton.swift */,
 				20FD93D81EDFAF70000AAE24 /* InPutTextField.swift */,
@@ -423,7 +460,6 @@
 			children = (
 				20FD93E11EDFAFDB000AAE24 /* MainContentViewController.swift */,
 				20FD93E21EDFAFDB000AAE24 /* MainContentWindow.swift */,
-				20FD93E31EDFAFDB000AAE24 /* MainViewController.swift */,
 				20FD93E41EDFAFDB000AAE24 /* Project.swift */,
 				20FD93E51EDFAFDB000AAE24 /* ProjectRowView.swift */,
 				20FD93E61EDFAFDB000AAE24 /* ProjectRowView.xib */,
@@ -442,6 +478,7 @@
 				206DC8571EDEC56C00D547A9 /* Frameworks */,
 				206DC8581EDEC56C00D547A9 /* Resources */,
 				206DC8D71EDEC6DE00D547A9 /* ShellScript */,
+				2078363B1EEE998700D48A22 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -508,6 +545,7 @@
 				206DC8D01EDEC5D200D547A9 /* lintShell.sh in Resources */,
 				206DC8CE1EDEC5D200D547A9 /* initShell.sh in Resources */,
 				206CB1501EE257E40045FE93 /* SpecHelpViewController.xib in Resources */,
+				201042071EE7F19900CCC55A /* StatusBarMenu.xib in Resources */,
 				20FD93F11EDFB167000AAE24 /* removeShell.sh in Resources */,
 				206DC8D21EDEC5D200D547A9 /* createShell.sh in Resources */,
 				206DC8AC1EDEC5D200D547A9 /* Main.storyboard in Resources */,
@@ -583,9 +621,10 @@
 				20DAFE251EE69FA100DE6C10 /* OAuth2DataLoaderSessionTaskDelegate.swift in Sources */,
 				20FD93E91EDFAFDB000AAE24 /* MainContentViewController.swift in Sources */,
 				20DAFE3C1EE69FA100DE6C10 /* OAuth2CustomAuthorizerUI.swift in Sources */,
-				20FD93EB1EDFAFDB000AAE24 /* MainViewController.swift in Sources */,
+				20FD93EB1EDFAFDB000AAE24 /* LoginViewController.swift in Sources */,
 				20DAFE371EE69FA100DE6C10 /* OAuth2AuthConfig.swift in Sources */,
 				20DAFE3A1EE69FA100DE6C10 /* OAuth2Base.swift in Sources */,
+				201042031EE7F15800CCC55A /* StatusBarMenu.swift in Sources */,
 				206DC8C81EDEC5D200D547A9 /* AddSpecWindow.swift in Sources */,
 				20DAFE3D1EE69FA100DE6C10 /* OAuth2DebugURLSessionDelegate.swift in Sources */,
 				20DAFE291EE69FA100DE6C10 /* OAuth2ClientCredentialsReddit.swift in Sources */,
@@ -601,6 +640,7 @@
 				206DC8C21EDEC5D200D547A9 /* PMAppDelegate.swift in Sources */,
 				20DAFE3E1EE69FA100DE6C10 /* OAuth2Error.swift in Sources */,
 				206DC8CB1EDEC5D200D547A9 /* settingWindow.swift in Sources */,
+				208E98D91EEE7166003EAD7E /* Pod+PodProcess.swift in Sources */,
 				20DAFE441EE69FA100DE6C10 /* OAuth2Securable.swift in Sources */,
 				20DAFE411EE69FA100DE6C10 /* OAuth2Requestable.swift in Sources */,
 				20FD93DB1EDFAF70000AAE24 /* IconImageView.swift in Sources */,

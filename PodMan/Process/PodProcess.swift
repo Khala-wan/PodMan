@@ -10,13 +10,15 @@ import Cocoa
 
 struct PodProcess : baseProcess{
     
-    var delegate:ProcessDelegate?
-    
     var process: Process = Process()
     
-    static func initWith(delegate:ProcessDelegate) -> PodProcess{
+    var delegate:ProcessDelegate?
+    var operation:PodManOperationType?
+    
+    static func initWith(operation:PodManOperationType ,delegate:ProcessDelegate) -> PodProcess{
         var process:PodProcess = PodProcess()
         process.delegate = delegate
+        process.operation = operation
         return process
     }
     
@@ -36,14 +38,13 @@ struct PodProcess : baseProcess{
     }
     
     //MARK: ---- pod lint
-    func runPodLint(filePath:String,outPutView:NSTextView,allowWarning:Bool,useLibraries:Bool){
-        runShellWith(filePath: filePath, shellName: "lintShell.sh", outPutView: outPutView, arguments: [getPrivateSources(),allowWarning ? "YES" : "NO",useLibraries ? "YES" : "NO"])
+    func runPodLint(filePath:String,outPutView:NSTextView,allowWarning:Bool,useLibraries:Bool,verbose:Bool){
+        runShellWith(filePath: filePath, shellName: "lintShell.sh", outPutView: outPutView, arguments: [getPrivateSources(),allowWarning ? "--allow-warnings" : "",useLibraries ? "--use-libraries" : "",verbose ? "--verbose" : ""])
     }
     
     //MARK: ---- pod sepc lint
-    func runPodSpecLint(filePath:String,outPutView:NSTextView){
-        
-        runShellWith(filePath: filePath, shellName: "updateShell.sh", outPutView: outPutView)
+    func runPodSpecLint(filePath:String,outPutView:NSTextView,allowWarning:Bool,useLibraries:Bool,verbose:Bool){
+        runShellWith(filePath: filePath, shellName: "specLintShell.sh", outPutView: outPutView, arguments: [getPrivateSources(),allowWarning ? "--allow-warnings" : "",useLibraries ? "--use-libraries" : "",verbose ? "--verbose" : ""])
     }
     
     
@@ -75,6 +76,19 @@ struct PodProcess : baseProcess{
         Sources = repos + Sources
         
         return Sources.joined(separator: ",")
+    }
+    
+    func handleResult(str:String){
+        if str.contains("PodProcessSuccessed") {
+            delegate?.ProcessDidSuccessed(opration: operation!)
+        }
+        else if str.contains("PodProcessFailed"){
+            
+            var errorMessages:[String] = str.replacingOccurrences(of: "PodProcessFailed\n", with: "").components(separatedBy: "\n")
+            _ = errorMessages.popLast()
+            let errorMessage:String = errorMessages.last ?? ""
+            delegate?.ProcessDidFailed(opration: operation!, message: errorMessage)
+        }
     }
     
 }
