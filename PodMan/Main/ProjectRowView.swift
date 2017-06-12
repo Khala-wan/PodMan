@@ -78,11 +78,12 @@ class ProjectRowView: NSTableCellView ,ProcessDelegate{
 //MARK:Delegate
     func ProcessDidSuccessed(opration: PodManOperationType) {
         animation(false)
-        
+        showNoti(successed: true)
     }
     
     func ProcessDidFailed(opration: PodManOperationType, message: String) {
         animation(false)
+        showNoti(successed: false)
     }
     
 //MARK: ---- getter && setter
