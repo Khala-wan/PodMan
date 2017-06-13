@@ -23,25 +23,17 @@ class MainContentViewController: NSViewController ,NSSplitViewDelegate,NSTableVi
 //MARK: ---- Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        splitView.delegate = self
-        iconView.wantsLayer = true
-        iconView.layer?.cornerRadius = 4
-        projectListView.dataSource = self
-        projectListView.delegate = self
-        projectListView.register(NSNib.init(nibNamed: NSNib.Name(rawValue: "ProjectRowView"), bundle: nil), forIdentifier: NSUserInterfaceItemIdentifier(rawValue: "project"))
-        projectListView.selectionHighlightStyle = .regular
-        searchField.delegate = self
-        NotificationCenter.default.addObserver(self, selector: #selector(windowWillClose(noti:)), name: NSWindow.willCloseNotification, object: nil)
-        let appDelegate:AppDelegate = NSApplication.shared.delegate as! AppDelegate
-        if let meun:StatusBarMenu = appDelegate.statusBarItem?.menu as? StatusBarMenu{
-            meun.statusDelegate = self
-        }
-        NSUserNotificationCenter.default.delegate = self
+        setUp()
     }
     
     override func viewDidAppear() {
         super.viewDidAppear()
-        projectListView.selectRowIndexes(IndexSet.init(integer: 0), byExtendingSelection: true)
+        if projectList.count > 0 {
+            projectListView.selectRowIndexes(IndexSet.init(integer: 0), byExtendingSelection: true)
+            _ = tableView(projectListView, shouldSelectRow: 0)
+        }else{
+            currentProjectView = nil
+        }
     }
     
     @objc fileprivate final func windowWillClose(noti:Notification){
@@ -97,6 +89,7 @@ class MainContentViewController: NSViewController ,NSSplitViewDelegate,NSTableVi
                 switch newProject{
                 case .app:
                     self.insertPodManProject(item: newProject)
+                    self.projectListViewReload()
                     self.selectLastProject()
                 case  .pod(let name,let path, _, _):
                     let panel:CreateProjectPanel = CreateProjectPanel.panel(path: path, name: name, completionHandler: { (pod, isCreate) in
@@ -147,6 +140,28 @@ class MainContentViewController: NSViewController ,NSSplitViewDelegate,NSTableVi
     
 //MARK: ---- private Method
     
+    /// 初始化时所有的设置
+    fileprivate final func setUp(){
+        splitView.delegate = self
+        iconView.wantsLayer = true
+        iconView.layer?.cornerRadius = 4
+        projectListView.dataSource = self
+        projectListView.delegate = self
+        projectListView.register(NSNib.init(nibNamed: NSNib.Name(rawValue: "ProjectRowView"), bundle: nil), forIdentifier: NSUserInterfaceItemIdentifier(rawValue: "project"))
+        projectListView.selectionHighlightStyle = .regular
+        searchField.delegate = self
+        NotificationCenter.default.addObserver(self, selector: #selector(windowWillClose(noti:)), name: NSWindow.willCloseNotification, object: nil)
+        let appDelegate:AppDelegate = NSApplication.shared.delegate as! AppDelegate
+        if let meun:StatusBarMenu = appDelegate.statusBarItem?.menu as? StatusBarMenu{
+            meun.statusDelegate = self
+        }
+        NSUserNotificationCenter.default.delegate = self
+    }
+    
+    /// 获取项目信息
+    ///
+    /// - Parameter url: 项目路径URL
+    /// - Returns: 项目信息
     fileprivate final func getProjectInfoWith(url:URL)->project{
         let manger:FileManager = FileManager.default
         let fileFullName:String = url.lastPathComponent
@@ -165,21 +180,35 @@ class MainContentViewController: NSViewController ,NSSplitViewDelegate,NSTableVi
         }
     }
     
+    /// 验证项目是否存在
+    ///
+    /// - Parameters:
+    ///   - name: 名称
+    ///   - path: 路径
+    /// - Returns: 项目是否存在
     fileprivate final func vaildProject(name:String,path:URL)->Bool{
             
         return PodManProject.queryData(path).count == 0
     }
     
+    /// 删除项目
+    ///
+    /// - Parameter filePath: 项目对应的文件路径
     fileprivate final func deleteProject(filePath:String){
         PodManProject.deleteData(path: filePath)
         projectListViewReload()
     }
     
+    /// 选中最后一个项目
     fileprivate final func selectLastProject(){
-        projectListView.selectRowIndexes(IndexSet.init(integer: projectList.count - 1), byExtendingSelection: true)
         projectListView.deselectRow(0)
+        projectListView.selectRowIndexes(IndexSet.init(integer: projectList.count - 1), byExtendingSelection: true)
+        _ = tableView(projectListView, shouldSelectRow: projectList.count - 1)
     }
     
+    /// 数据源插入项目
+    ///
+    /// - Parameter item: 项目item
     fileprivate final func insertPodManProject(item:project){
         if case let project.app(name, path, _) = item{
             PodManProject.insertData(name: name, filePath: path, isPod: false)
@@ -187,11 +216,14 @@ class MainContentViewController: NSViewController ,NSSplitViewDelegate,NSTableVi
         if case let project.pod(name, path, _, _) = item{
             PodManProject.insertData(name: name, filePath: path, isPod: true)
         }
-        projectListViewReload()
     }
     
+    /// 刷新项目ListView
     fileprivate final func projectListViewReload(){
         projectList = PodManProject.queryData(nil)
+        if projectList.count == 0{
+            currentProjectView = nil
+        }
         projectListView.reloadData()
     }
     
@@ -206,14 +238,17 @@ class MainContentViewController: NSViewController ,NSSplitViewDelegate,NSTableVi
     /// 初始化操作按钮
     ///
     /// - Parameter isPodOperation: 是否是Pod相关操作还是PodFile相关操作
-    fileprivate final func initOperationButtons(isPodOperation:Bool){
-        allowWaringsBox.isEnabled = isPodOperation
-        useLibrariesBox.isEnabled = isPodOperation
-        initBtn.isEnabled = !isPodOperation
-        installBtn.isEnabled = !isPodOperation
-        updateBtn.isEnabled = !isPodOperation
-        lintBtn.isEnabled = isPodOperation
-        specLintBtn.isEnabled = isPodOperation
+    fileprivate final func initOperationButtons(isPodOperation:Bool?){
+        let ispod:Bool = isPodOperation ?? false
+        let isnotPod:Bool = isPodOperation == nil ? false : !isPodOperation!
+        allowWaringsBox.isEnabled = ispod
+        useLibrariesBox.isEnabled = ispod
+        verboseBox.isEnabled = ispod
+        lintBtn.isEnabled = ispod
+        specLintBtn.isEnabled = ispod
+        initBtn.isEnabled = isnotPod
+        installBtn.isEnabled = isnotPod
+        updateBtn.isEnabled = isnotPod
     }
     
     /// 初始化Pod操作相关选项按钮
@@ -228,7 +263,12 @@ class MainContentViewController: NSViewController ,NSSplitViewDelegate,NSTableVi
         verboseBox.state = verbose ? .on : .off
     }
     
-    fileprivate final func updateStatusBarMenu(name:String,isPod:Bool){
+    /// 更新statusBarItemMenu
+    ///
+    /// - Parameters:
+    ///   - name: 当前项目名称
+    ///   - isPod: 是否可以进行Pod相关操作
+    fileprivate final func updateStatusBarMenu(name:String,isPod:Bool?){
         let appDelegate:AppDelegate = NSApplication.shared.delegate as! AppDelegate
         if let meun:StatusBarMenu = appDelegate.statusBarItem?.menu as? StatusBarMenu{
             meun.isPod = isPod
@@ -297,14 +337,14 @@ class MainContentViewController: NSViewController ,NSSplitViewDelegate,NSTableVi
     }
     
 //MARK: ---- getter && setter
+    
+    /// 总数据源
     fileprivate var projectList:[project] = {
         return PodManProject.queryData(nil)
-    }(){
-        didSet{
-            projectListView.reloadData()
-        }
-    }
+    }()
     
+    
+    /// 搜索框数据源
     var currentProjects:[project]{
         get{
             if searchField.stringValue.characters.count == 0 {
@@ -324,13 +364,21 @@ class MainContentViewController: NSViewController ,NSSplitViewDelegate,NSTableVi
     
     fileprivate var currentModalSession:NSApplication.ModalSession?
     
+    /// 当前操作的项目单元对应的View
     fileprivate var currentProjectView:ProjectRowView?{
         didSet{
+            guard currentProjectView != nil else{
+                projectVersionLabel.stringValue = ""
+                projectNameLabel.stringValue = ""
+                initOperationButtons(isPodOperation: nil)
+                updateStatusBarMenu(name: "", isPod: nil)
+                return
+            }
             var isPod:Bool = false
             switch (currentProjectView?.type)!{
             case .pod:
                 isPod = true
-//                initPodSettingButtons(allowWarnings: currentProjectView!.selectedPod!.allowWarnings, useLibraries: currentProjectView!.selectedPod!.useLibraries, verbose: currentProjectView!.selectedPod!.verbose)
+                initPodSettingButtons(allowWarnings: currentProjectView!.selectedPod!.allowWarnings, useLibraries: currentProjectView!.selectedPod!.useLibraries, verbose: currentProjectView!.selectedPod!.verbose)
             case .app:
                 isPod = false
             default:

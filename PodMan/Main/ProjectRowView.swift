@@ -70,8 +70,8 @@ class ProjectRowView: NSTableCellView ,ProcessDelegate{
     
     fileprivate final func showNoti(successed:Bool){
         let noti:NSUserNotification = NSUserNotification()
-        noti.title = selectedPod?.name!
-        noti.informativeText = successed ? "\(String(describing: op))已完成!" : "\(String(describing: op))失败"
+        noti.title = (selectedPod?.name!)!
+        noti.informativeText = successed ? "\(String(describing: op!.rawValue))已完成!" : "\(String(describing: op!.rawValue)))失败"
         noti.deliveryDate = Date.init(timeIntervalSinceNow: 0)
         NSUserNotificationCenter.default.scheduleNotification(noti)
     }

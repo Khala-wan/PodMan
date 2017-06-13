@@ -48,7 +48,6 @@ class CreateProjectPanel: NSWindow ,NSComboBoxDelegate,NSComboBoxDataSource,Proc
         PodInfo["viewTest"] = "yes"
         PodInfo["demoAPP"] = "yes"
         PodInfo["lan"] = "swift"
-        
     }
     
 //MARK: ---- Event Response

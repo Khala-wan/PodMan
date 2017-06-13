@@ -10,12 +10,12 @@ import Cocoa
 
 public enum PodManOperationType : String{
     case Init = "初始化"
-    case install
-    case update
-    case lint
-    case specLint
-    case tag
-    case release
+    case install = "安装PodFile"
+    case update = "更新PodFile"
+    case lint = "本地验证"
+    case specLint = "远程验证"
+    case tag = "tag"
+    case release = "发布"
     case addSpec
     case removeSpec
     case create
@@ -67,16 +67,14 @@ class StatusBarMenu: NSMenu ,NSMenuDelegate{
 //MARK: ---- getter && setter
     var isPod:Bool?{
         didSet{
-            if isPod != nil {
-                PodOpertaionItem.isEnabled = isPod!
-                lintItem.isEnabled = isPod!
-                specLintItem.isEnabled = isPod!
-                tagItem.isEnabled = isPod!
-                releaseItem.isEnabled = isPod!
-                PodFileOperationItem.isEnabled = !isPod!
-                installItem.isEnabled = !isPod!
-                UpdateItem.isEnabled = !isPod!
-            }
+            PodOpertaionItem.isEnabled = isPod ?? false
+            lintItem.isEnabled = isPod ?? false
+            specLintItem.isEnabled = isPod ?? false
+            tagItem.isEnabled = isPod ?? false
+            releaseItem.isEnabled = isPod ?? false
+            PodFileOperationItem.isEnabled = isPod == nil ? false : !isPod!
+            installItem.isEnabled = isPod == nil ? false : !isPod!
+            UpdateItem.isEnabled = isPod == nil ? false : !isPod!
         }
     }
     
