@@ -3,7 +3,7 @@
 PodMan - A Pod Tool For MacOS
 =============================
 
-![platforms](https://img.shields.io/badge/platforms-MacOS-333333.svg) ![Xcode 9.0-beta](https://img.shields.io/badge/Xcode-8.2%2B-blue.svg) ![MacOS 10.12+](https://img.shields.io/badge/iOS-8.0%2B-blue.svg) ![Swift 4.0](https://img.shields.io/badge/Swift-3.0%2B-orange.svg)
+![platforms](https://img.shields.io/badge/platforms-MacOS-333333.svg) ![Xcode 9.0-beta](https://img.shields.io/badge/Xcode-9.0%2B-blue.svg) ![MacOS 10.12+](https://img.shields.io/badge/MacOS-10.12%2B-blue.svg) ![Swift 4.0](https://img.shields.io/badge/Swift-4.0%2B-orange.svg)
 
 ## 介绍
 PodMan是一款运行在MacOS上，基于CocoaPods的工具型应用。旨在为纯命令行操作的CocoaPods增加一个相对友好的UI入口。CocoaPods官方也提供了MacOS应用。但是功能相对单一只能针对PodFile操作，对于我们想要自己创建Pod，私有化Pod，日常维护自己Pod的开发者们需要更多定制的功能。PodMan可以帮助你完成这些工作。
