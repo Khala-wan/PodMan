@@ -31,13 +31,16 @@ PodMan是一款运行在MacOS上，基于CocoaPods的工具型应用。旨在为
 然后...欢迎使用PodMan！
 
 ## 使用PodMan
-请前去查看《PodMan使用手册》
+请前去查看[《PodMan使用手册》](http://khala-wan.com/app/2017/06/13/PodMan使用手册/)
 
-##TODO
+## TODO List
 * 发布beta版本 (done)
 * 单元测试
 * 增加PodFile编辑功能
-* ...
+* 增加PodSpec文件编辑功能
+* 增加Carthage相关功能
+* 增加Swift Package Manger相关功能
+* 待续
 
 ## 最后
 项目正在beta测试中，如果你遇到任何问题都可以通过我博客的联系方式找到我，或者提issue给我。或者直接发个PR那就最好不过了~~。期待你的使用。
