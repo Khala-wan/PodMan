@@ -125,7 +125,7 @@ class CreateProjectPanel: NSWindow ,NSComboBoxDelegate,NSComboBoxDataSource,Proc
         let podItem = getPodItemFromPodInfo(info: PodInfo)
         if isCreate {
             var path:URL = URL.init(string: podItem.dictionary!)!
-            path.appendPathComponent("\(podItem.dictionary!).podspec")
+            path.appendPathComponent("\(podItem.name!).podspec")
             let newProject = project.pod(name: podItem.name!, path: path, version: "0.1.0", lintPath: path.absoluteString)
             completionHandlerForCrate(newProject,podItem,isCreate)
         }else{
@@ -157,7 +157,7 @@ class CreateProjectPanel: NSWindow ,NSComboBoxDelegate,NSComboBoxDataSource,Proc
         let podDir:URL = URL.init(string: PodInfo["podPath"]!)!
         let podItem:PodModel = PodModel()
         podItem.name = PodInfo["podName"]!
-        podItem.dictionary = podDir.absoluteString
+        podItem.dictionary = podDir.appendingPathComponent(podItem.name!).absoluteString
         podItem.specsRepo = PodInfo["specsRepo"]
         podItem.isPrivate = isPrivatePod
         podItem.useLibraries = false
